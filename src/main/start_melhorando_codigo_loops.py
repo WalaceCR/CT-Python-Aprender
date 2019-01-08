@@ -1,3 +1,4 @@
+import random
 
 
 def init():
@@ -7,14 +8,24 @@ def init():
 
 
 def input_de_dados():
-    numero_secreto_nada_secreto = 45
+    numero_secreto_nada_secreto = round(random.randrange(1, 101))
     numero_de_tentativas = 1
-    rodada = 1
+    tentativas_do_nivel = 0
+
+    print("************************************************//************************************************")
+    nivel = int(input("Digite um nível mongolão entre 1(Easy), 2(Medium) e 3(Hard)!!! \n"))
+    if nivel == 1:
+        tentativas_do_nivel = 20
+    elif nivel == 2:
+        tentativas_do_nivel = 10
+    else:
+        tentativas_do_nivel = 5
+
 
     print("************************************************//************************************************")
     print("                                    Vocẽ terá trẽs tentativas!!!")
     print("************************************************//************************************************")
-    while numero_de_tentativas <= 3:
+    while numero_de_tentativas <= tentativas_do_nivel:
         print("Vocẽ está na tentativa: ", numero_de_tentativas)
         chute = int(input("Digite um número qualquer mongolão!!! \n"))
 
@@ -32,6 +43,7 @@ def input_de_dados():
         numero_de_tentativas += 1
 
     print("Fim de jogo mongolão")
+    print("O número secreto era ", numero_secreto_nada_secreto)
 
 
 init()
